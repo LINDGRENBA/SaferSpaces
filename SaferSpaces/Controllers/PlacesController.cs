@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SaferSpacesClient.Models;
-
 namespace SaferSpacesClient.Controllers
 {
   public class PlacesController : Controller
@@ -30,12 +29,13 @@ namespace SaferSpacesClient.Controllers
     [HttpPost, ActionName("AddTestimonials")]
     public IActionResult AddNewTestimonial(string place_id, Testimonial testimonial)
     {
-      if(place_id != null)
+      if (place_id != null)
       {
         Testimonial.Post(place_id, testimonial);
       }
       return RedirectToAction("Details");
     }
+
     // public IActionResult AddTestimonials(string id)
     // {
     //   var place = new Place();
@@ -71,16 +71,16 @@ namespace SaferSpacesClient.Controllers
     //   string jsonAnimal = JsonConvert.SerializeObject(animal);
     //   var apiCallTask = ApiHelper.Post(jsonAnimal);
     // }
-// [HttpPost]
-//     public ActionResult AddEngineer(Machine machine, int EngineerId)
-//     {
-//       if(EngineerId != 0)
-//       {
-//         _db.EngineerMachine.Add(new EngineerMachine() {MachineId = machine.MachineId, EngineerId = EngineerId});
-//       }
-//       _db.SaveChanges();
-//       return RedirectToAction("Index");
-//     }
+    // [HttpPost]
+    //     public ActionResult AddEngineer(Machine machine, int EngineerId)
+    //     {
+    //       if(EngineerId != 0)
+    //       {
+    //         _db.EngineerMachine.Add(new EngineerMachine() {MachineId = machine.MachineId, EngineerId = EngineerId});
+    //       }
+    //       _db.SaveChanges();
+    //       return RedirectToAction("Index");
+    //     }
 
     //  [HttpPost]
     // public IActionResult Create(Place place)

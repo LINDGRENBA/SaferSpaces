@@ -1,189 +1,137 @@
-# _PROJECT NAME HERE_
+<h1 align='center'><img width='900' height='450' src='SaferSpaces/wwwroot/img/background.jpg'><br>
 
-#### _C# ASP.NET Core MVC and EF Core practice for Epicodus, 00.00.2020_
+**<h1 align = 'center'>Safer Spaces**
 
-#### By _**Brittany Lindgren**_
+_<h2 align ='center'>A community based way to vet the venues you and your friends frequent_
 
-## Description
+_<h3 align ='center'>README.md created using [MakeMeTakeMeReadMe](https://github.com/tmemmerson/MakeMeTakeMeReadMe.Solution)_
 
-_ELAVATOR PITCH HERE._
+<h3 align ='center'>•<a href='#requirements'> Requirements</a> •<a href='#setup'> Setup</a> •<a href='#technologies-used'> Technologies</a> •<a href='#❤️contributors'> Contributors</a> •<a href='#known-bugs'> Bugs</a> •<a href='#cloning'> Cloning</a> •<a href='#app-settings'> AppSettings</a> •<a href='#database-with-migrations'> Database</a></h3>
 
-## Specifications
+<h3 align='center'>About this project:</h3>
 
-| Behavior | Input | Output | Met? (Y/N) |
-| -------- | :---: | -----: | ---------: |
-|          |       |        |            |
+# **REQUIREMENTS**
 
-## Stretch Goals
+_[Visual Studio Code](https://code.visualstudio.com/)_
 
-| Behavior | Input | Output | Met? (Y/N) |
-| -------- | :---: | -----: | ---------: |
+_[MySql Workbench](https://www.mysql.com/products/workbench/)_
 
+_[.Net Core v2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2)_
 
-## User Stories
+# **SETUP**
 
-## Setup/Installation Requirements
+## **CLONING**
 
-1. Follow this [link to the project repository](PUT LINK HERE) on GitHub.
-2. Click on the "Clone or download" button to copy the project link.
-3. If you are comfortable with the command line, you can copy the project link and clone it through your command line with the command `git clone`. Otherwise, I recommend choosing "**Download ZIP**".
-4. Once the ZIP file has finished downloading, you can right click on the file to view the zip folder in your downloads.
-5. Right click on the project ZIP folder that you have just downloaded and choose the option "**Copy To...**", then choose the location where you would like to save this folder.
-6. Navigate to the final location where you have chosen to save the project folder.
-7. To view the code itself, right click, choose **open with...** and open using a text editor such as VS Code or Atom, etc.
-8. Once you are inside of your text editor, open the terminal. If you are in VS Code for example, this can be done by clicking on `Terminal` at the top of the editor and then selecting `New Terminal`. \*\*You can navigate to different directories in the project by typing `cd DirectoryName` to go down into specific directories or `cd ..` to go back up one directory.
-9. Navigate to the DIRECTORYNAME directory by typing `cd DIRECTORYNAME` in your terminal and hitting `enter`. Then type the command `dotnet restore`,`dotnet build`, then `dotnet run` into your terminal and hit enter. You should see files appear inside of your bin folder. The bin folder should appear greyed out.
-10. Click on the link provided after you see `now listening on: ... ` appear in your terminal.
+- Copy the repo link as shown in the image below
 
-#### Additional Setup/Installation Notes:
+![cloning](https://coding-assets.s3-us-west-2.amazonaws.com/img/clone.gif 'How to clone repo')
 
-- You will need to configure the MySQL Workbench database in order to run this project. See directions below.
-- Do not alter the bin/ or obj/ directories or any of the files in them.
+- Paste the link in the field provided by VsCode as thown in the image below
 
-#### Configure the MySQL Workbench Database:
+- You will be prompted to open the directory once you have cloned it. Select 'open'
 
-- Install MySQL and MySQL Workbench first. During installation of MySQL you will be asked to create a password. This is important! Take note of your password. Once you have installed MySQL and MySQL Workbenck, start MySQL by entering `mysql -uroot -p+_yourpassword_` in the terminal. Example: password is `tomato`, enter `mysql -uroot ptomato`. If this doesn't work in your terminal, try using your computer's command line interface application. If you are successful, you will see a message in the terminal, ending with the line `mysql>`. Once you have succesfully completed these steps, follow the instructions below.
-- Open MySQL Workbench and double click on the grey box under the line `MySQL Connections` (this box should say `mamp` and have some text and numbers ending in `:3306`). This will launch the MySQL Workbench. You may be prompted to enter the same password that you used in the previous step (ex: `tomato`).
+![cloning](https://coding-assets.s3-us-west-2.amazonaws.com/img/clone-github2.gif 'Cloning from Github within VSCode')
 
-#### Import Database to MySQL Workbench
+<br>
 
-To set up the database for this project, you can follow the steps below to import it into MySQL Workbench.
+# **APP SETTINGS**
 
-- Open the Navigator, click on the `Administration` tab
-- Select `Data Import/Restore`
-- Select the option to `Import from Self-Contained File`
-- To the right, click on the `...` box to select the database file from this project (the file in the root directory ending in .sql)
-- Below the items from the last step, you'll see `Default Schema to be Imported To`, select `New...`
-- Enter the name of the database, in this case **`database_name`**
-- Select the `Import Progress` tab and click on the `Start Import` button.
-- Return to the Navigator window. Anywhere in that area, right click and select `refresh`
-- Your database should appear in the navigator window.
+**You need to update your username and password in the appsettings.json file.**
 
-#### Create a New Schema Query:
+_By default these are set to user:root and an empty password. If you are unsure, refer to the settings for your MySqlWorkbench._
 
-- You should see an icon in the upper left that looks like a little piece of paper with the letters `SQL` and a + sign. Hover over the icon and confirm that this is the 'create a new SQL tab for executing queries' icon. Once confirmed, double click the icon.
-- Copy paste the code below into the Query tab.
-- Then click 'execute' (this may appear as a lightening bolt icon).
+![appsettings](https://coding-assets.s3-us-west-2.amazonaws.com/img/app-settings.png)
 
-**NOTE** database is listed in appsettings.json as `brittany_lindgren_uniqueidentifier` to avoid overwriting author's other databases. If you experience any issues, check to make sure that all references to database in project match name of MySQL Workbench Schema.
+<br>
 
-##### SQL SCHEMA QUERY
+# **OBTAINING AN API KEY**
 
-```
-CREATE DATABASE IF NOT EXISTS **_database_name_**; USE **_database_name_**;
-DROP TABLE IF EXISTS `__efmigrationshistory`;
+In order to use this project, you will need to obtain an API key from the Google Places public API. You can find instructions for this process here: [Google Places API](https://developers.google.com/places/web-service/get-api-key). Once you obtain the key, you will create a file in the `Models` directory of `SaferSpacesApi`.
 
-.
-.
-.
+![EnvironmentalVariable](SaferSpaces/wwwroot/img/EnvironmentVariable.jpg)
 
-```
+# **DATABASE WITH MIGRATIONS**
 
-#### Code First with Migrations
+with the root project folder open in your code editor, execute the following in your terminal:
 
-You can also populate the Database from the VS Code terminal using Migrations.
+`cd ProjectName`
 
-- Enter the following into the VS Code terminal `dotnet ef migrations add Initial` and hit Enter
-- Now enter `dotnet ef database update` and hit Enter
+`dotnet restore`
 
-Anytime you make a change to a Model that affects the database, run the dotnet commands
+`dotnet build`
 
-1. `dotnet ef migrations add NameExpressingWhatYouAdded`
-2. `dotnet ef database update`
+`dotnet ef database update`
 
-#### Run the Application
+`dotnet watch run`
 
-- After you have completed setup and installation and configured the database, you can type the command `dotnet run` into your terminal.
-- Once you see the message `now listening on: ... ` appear in your terminal, open your browser and type `localhost:5000` as the url. This should direct you to the main page of this project.
+<br>
 
-## Known Bugs
+# **TECHNOLOGIES USED**
 
-| Bug : Message | Situation | Resolved (Y/N) | How was the issue resolved? |
-| ------------- | --------- | -------------- | --------------------------- |
-|               |           |                |                             |
+_[C#](https://docs.microsoft.com/en-us/dotnet/csharp/)_
 
-## Support and contact details
+_[CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)_
 
-_Please feel free to contact the authors through GitHub (LINDGRENBA) with any feedback, questions or concerns._
+_[Bootstrap](https://getbootstrap.com/)_
 
-## Technologies Used
+_[Bootswatch](https://bootswatch.com/)_
 
-- Entity Framework Core
-- ASP.NET Core Identity
-- ASP.NET Core MVC
-- .NET Core 2.2
-- MySQL & MySQL Workbench
-- C#
-- Razor
-- Visual Studio Code
-- Git Version Control
-- GitHub
+_[Asp.Net MVC](https://dotnet.microsoft.com/apps/aspnet/mvc)_
 
-Photo <span>Photo by <a href="https://unsplash.com/@lexscope?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">LexScope</a> on <a href="https://unsplash.com/s/photos/bar?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
+_[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)_
 
+_[Visual Studio Code](https://code.visualstudio.com/)_
 
-Copyright (c) 2020 **_{Brittany Lindgren}_**
+_[MySql Workbench](https://www.mysql.com/products/workbench/)_
 
-Notes to Myself to add for Identity
+<br>
 
-1. In Models that you want associated with a specific user (eg: Project/Models/Item.cs) add the following property ->
-   public virtual ApplicationUser User { get; set; }
+# **MVP Goals**
 
-2. In the controller for that Model (eg: Projec/Controllers/ItemsController.cs), add the necessary using statements ->
-   using Microsoft.AspNetCore.Authorization; //allows us to authorize users
-   using Microsoft.AspNetCore.Identity; // allows our controller to interact with users from the database
-   using System.Threading.Tasks; // need it to call async methods
-   using System.Security.Claims; // important for using 'claim based authorization'
+| Goal                                                                                                        | Completed(Y/N?) | Notes                                                                                                                                 |
+| ----------------------------------------------------------------------------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| About section on Home Index View with details about project                                                 | Y               | Add About section                                                                                                                     |
+| Create database, seed data with clubs, bars, et.                                                            | Y               | Removed once Google Places Api was implemented                                                                                        |
+| Create a class for Place, Event and Testimonials                                                            | Y               | n/a                                                                                                                                   |
+| Search by common elements such as venue or address to bring up list view of nearby nightlife                | Y               | n/a                                                                                                                                   |
+| Click on a locationto view its details (name, place type, address, description, % of testimonials)          | Partial         | Place details show, link to add testimonials and events show, but unable to add testimonials and events at this time so cannot view % |
+| User can log in or register and log off                                                                     | Y               | n/a                                                                                                                                   |
+| Use authorization to redirect to login page if user tries to post a testimonial / event while not logged in | Not yet         | Need to add authorization to routes                                                                                                   |
+| Add a testimonial or event to a place                                                                       | Not yet         | Able to view form, unable to post at this time                                                                                        |
 
-3. Update the initial setup of the controller (for example ->
+# **Specifications Stretch Goals**
 
-namespace ToDoList.Controllers
-{
-[Authorize] //new line
-public class ItemsController : Controller
-{
-private readonly ToDoListContext \_db;
-private readonly UserManager<ApplicationUser> \_userManager; //new line
+| Goal                                                    | Completed(Y/N?) |
+| ------------------------------------------------------- | --------------- |
+| Refuge Restroom API                                     | Not yet         |
+| More safety details                                     | Not yet         |
+| Email verification (OAuth) and notifications            | Not yet         |
+| Ability to follow businesses                            | Not yet         |
+| Add pagination Api and Frontend/Infinite Scroll         | Not yet         |
+| Add message if user tries to register a registered user | Not yet         |
 
-    //updated constructor
-    public ItemsController(UserManager<ApplicationUser> userManager, ToDoListContext db)
-    {
-      _userManager = userManager;
-      _db = db;
-    }
+# **KNOWN BUGS**
 
-)
+_**AddTestimonials and AddEvents forms currently do not post to API as of:** 8/27/2020_
 
-4.  Then utilize the new UserManager in specific routes (for example ->
+<br>
 
-        public async Task<ActionResult> Index()
+# **❤️Contributors**
 
-    {
-    var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-    var currentUser = await \_userManager.FindByIdAsync(userId);
-    var userItems = \_db.Items.Where(entry => entry.User.Id == currentUser.Id).ToList();
-    return View(userItems);
-    }
+| [<img src='https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/brittany-lindgren.jpeg' width='160px;'/><br /><sub><b>Brittany Lindgren</b></sub>](https://www.linkedin.com/in/brittanylindgren/)<br />
 
-)
+| [<img src='https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/erich-richter.jpeg' width='160px;'/><br /><sub><b>Erich Richter</b></sub>](https://www.linkedin.com/in/erichjrichter/)<br />
 
-5. Update your Create route to connect the thing being created with the user creating the thing (for example ->
+| [<img src='https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/jason-khan.jpeg' width='160px;'/><br /><sub><b>Jason Khan</b></sub>](https://www.linkedin.com/in/jasonkhan99/)<br />
 
-[HttpPost]
-public async Task<ActionResult> Create(Item item, int CategoryId)
-{
-var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-var currentUser = await \_userManager.FindByIdAsync(userId);
-item.User = currentUser;
-\_db.Items.Add(item);
-if (CategoryId != 0)
-{
-\_db.CategoryItem.Add(new CategoryItem() { CategoryId = CategoryId, ItemId = item.ItemId });
-}
-\_db.SaveChanges();
-return RedirectToAction("Index");
-}
+| [<img src='https://coding-assets.s3-us-west-2.amazonaws.com/linked-in-images/mariel-hamson.jpeg' width='160px;'/><br /><sub><b>Mariel Hamson</b></sub>](https://www.linkedin.com/in/marielhamson/)<br />
 
-)
+<br>
 
-6. See the example in Project/Views/ClassOnePlural/Index.cshtml of how to update a View to use Authorization6. See the example in Project/Views/ClassOnePlural/Index.cshtml of how to update a View to use Authorization
+safety community bars restaurants
+
+<br>
+
+![alt text][logo]
+
+[logo]: https://img.shields.io/bower/l/bootstrap 'MIT License'
