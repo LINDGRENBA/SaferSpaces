@@ -46,7 +46,16 @@ _By default these are set to user:root and an empty password. If you are unsure,
 
 # **OBTAINING AN API KEY**
 
-In order to use this project, you will need to obtain an API key from the Google Places public API. You can find instructions for this process here: [Google Places API](https://developers.google.com/places/web-service/get-api-key). Once you obtain the key, you will create a file in the `Models` directory of `SaferSpacesApi`.
+In order to use this project, you will need to obtain an API key from the Google Places public API. You can find instructions for this process here: [Google Places API](https://developers.google.com/places/web-service/get-api-key). Once you obtain the key, you will create a file in the `Models` directory of `SaferSpacesApi` called `EnvironmentVariables.cs` and copy paste the following code into the file, replacing [YOUR-API-KEY-HERE] with your actual Google Places API key.
+
+```namespace SaferSpacesClient.Models
+{
+  public static class EnvironmentVariables
+  {
+    public static string ApiKey = "[YOUR-API-KEY-HERE]";
+  }
+}
+```
 
 ![EnvironmentalVariable](SaferSpaces/wwwroot/img/EnvironmentVariable.png)
 
